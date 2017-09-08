@@ -1,0 +1,25 @@
+﻿@model auditproblem.Models.Parent;
+@{
+    ViewData["Title"] = "About";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<p>If the error still exists this page shouldn't display</p>
+
+<table>
+    <thead>
+        <tr><td>Prop</td><td>Value</td></tr>
+    </thead>
+    <tbody>
+        <tr><td>Parent.Id</td><td>@Model.Id</td></tr>
+        <tr><td>Parent.Name</td><td>@Model.Name</td></tr>
+        <tr><td>Children</td><td></td></tr>
+        @foreach(var child in Model.Children)
+        {
+            <tr><td>Child.Id</td><td>@child.Id</td></tr>
+            <tr><td>Child.Name</td><td>@child.Name</td></tr>
+            <tr><td>Child.Period</td><td>@child.Period.Start - @child.Period.End</td></tr>
+        }
+    </tbody>
+</table>
